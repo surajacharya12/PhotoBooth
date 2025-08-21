@@ -324,6 +324,22 @@ export default function PhotoBoothApp() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    // High-resolution photo strip for better quality
+    const STRIP_WIDTH = 600; // Doubled for higher resolution
+    const STRIP_HEIGHT = 1400; // Doubled for higher resolution
+    const PHOTO_WIDTH = 500; // Doubled for higher resolution
+    const PHOTO_HEIGHT = 370; // Doubled for higher resolution
+    const MARGIN = 30; // Scaled margin
+    const PHOTO_SPACING = 40; // Scaled spacing
+    const TEXT_AREA_HEIGHT = 200; // Scaled text area
+
+    canvas.width = STRIP_WIDTH;
+    canvas.height = STRIP_HEIGHT;
+
+    // Enable high-quality rendering for photo strip
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
+
     // Helper function to draw high-quality text that fits within width
     const drawFittingText = (
       text: string,
@@ -346,25 +362,6 @@ export default function PhotoBoothApp() {
       ctx.fillText(text, x, y);
       return currentFontSize;
     };
-
-    // High-resolution photo strip for better quality
-    const STRIP_WIDTH = 600; // Doubled for higher resolution
-    const STRIP_HEIGHT = 1400; // Doubled for higher resolution
-    const PHOTO_WIDTH = 500; // Doubled for higher resolution
-    const PHOTO_HEIGHT = 370; // Doubled for higher resolution
-    const MARGIN = 30; // Scaled margin
-    const PHOTO_SPACING = 40; // Scaled spacing
-    const TEXT_AREA_HEIGHT = 200; // Scaled text area
-
-    canvas.width = STRIP_WIDTH;
-    canvas.height = STRIP_HEIGHT;
-
-    // Enable high-quality rendering for photo strip
-    const ctx = canvas.getContext("2d");
-    if (ctx) {
-      ctx.imageSmoothingEnabled = true;
-      ctx.imageSmoothingQuality = "high";
-    }
 
     const backgroundGradient = ctx.createLinearGradient(0, 0, 0, STRIP_HEIGHT);
     backgroundGradient.addColorStop(0, "#ffffff");
