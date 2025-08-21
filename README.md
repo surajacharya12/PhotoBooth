@@ -7,7 +7,19 @@ Photobooth is a modern, full-stack web application for capturing, uploading, and
 - **User Authentication:** Secure login and registration
 - **Image Uploads:** Upload images from your device
 - **Real-time Gallery:** View uploaded photos instantly
-- **Photo Effects:** Apply effects and filters to your photos
+- **Photo Effects & Filters:**
+  - Original
+  - Black & White
+  - Sepia
+  - Vintage
+  - Vivid
+  - Blur
+  - Brightness
+  - Contrast
+  - Grayscale
+  - Invert
+  - Pixelate
+  - Custom (coming soon)
 - **Responsive Design:** Seamless experience on all devices
 - **Modern UI:** Built with shadcn/ui and Tailwind CSS
 

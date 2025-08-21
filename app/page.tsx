@@ -6,13 +6,23 @@ import { Card } from "@/components/ui/card";
 import { Camera, Sparkles, Download, RotateCcw, Palette } from "lucide-react";
 
 type FilterType =
+  | "Original"
   | "90s"
   | "2000s"
   | "Noir"
   | "Fisheye"
   | "Rainbow"
   | "Glitch"
-  | "Crosshatch";
+  | "Crosshatch"
+  | "Sepia"
+  | "Vintage"
+  | "Vivid"
+  | "Blur"
+  | "Brightness"
+  | "Contrast"
+  | "Grayscale"
+  | "Invert"
+  | "Pixelate";
 
 interface CapturedPhoto {
   dataUrl: string;
@@ -24,7 +34,7 @@ export default function PhotoBoothApp() {
   const [isCapturing, setIsCapturing] = useState(false);
   const [countdown, setCountdown] = useState<string | null>(null);
   const [capturedPhotos, setCapturedPhotos] = useState<CapturedPhoto[]>([]);
-  const [currentFilter, setCurrentFilter] = useState<FilterType>("2000s");
+  const [currentFilter, setCurrentFilter] = useState<FilterType>("Original");
   const [showPhotoStrip, setShowPhotoStrip] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [showCurtains, setShowCurtains] = useState(true);
@@ -41,6 +51,13 @@ export default function PhotoBoothApp() {
     color: string;
     icon: string;
   }[] = [
+    {
+      name: "Original",
+      label: "Original",
+      css: "none",
+      color: "from-gray-200 to-gray-400",
+      icon: "🟢",
+    },
     {
       name: "90s",
       label: "90s",
@@ -89,6 +106,69 @@ export default function PhotoBoothApp() {
       css: "contrast(1.4) brightness(0.8) saturate(0.8)",
       color: "from-indigo-400 to-purple-600",
       icon: "✨",
+    },
+    {
+      name: "Sepia",
+      label: "Sepia",
+      css: "sepia(1)",
+      color: "from-yellow-700 to-yellow-400",
+      icon: "🟤",
+    },
+    {
+      name: "Vintage",
+      label: "Vintage",
+      css: "sepia(0.6) contrast(1.1) brightness(0.95)",
+      color: "from-yellow-900 to-yellow-600",
+      icon: "📻",
+    },
+    {
+      name: "Vivid",
+      label: "Vivid",
+      css: "saturate(2) brightness(1.2)",
+      color: "from-red-400 to-yellow-400",
+      icon: "🌞",
+    },
+    {
+      name: "Blur",
+      label: "Blur",
+      css: "blur(2px)",
+      color: "from-blue-200 to-blue-400",
+      icon: "💧",
+    },
+    {
+      name: "Brightness",
+      label: "Brightness",
+      css: "brightness(1.5)",
+      color: "from-yellow-200 to-yellow-400",
+      icon: "🔆",
+    },
+    {
+      name: "Contrast",
+      label: "Contrast",
+      css: "contrast(2)",
+      color: "from-gray-800 to-gray-400",
+      icon: "⚫",
+    },
+    {
+      name: "Grayscale",
+      label: "Grayscale",
+      css: "grayscale(1)",
+      color: "from-gray-400 to-gray-700",
+      icon: "⚪",
+    },
+    {
+      name: "Invert",
+      label: "Invert",
+      css: "invert(1)",
+      color: "from-black to-white",
+      icon: "🔄",
+    },
+    {
+      name: "Pixelate",
+      label: "Pixelate",
+      css: "contrast(1.2) saturate(1.2)", // Placeholder, true pixelate needs canvas manipulation
+      color: "from-pink-200 to-pink-400",
+      icon: "🟪",
     },
   ];
 
@@ -656,13 +736,13 @@ export default function PhotoBoothApp() {
                       Choose your style
                     </span>
                   </div>
-                  <div className="grid grid-cols-4 gap-2">
+                  <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-purple-500 scrollbar-track-transparent">
                     {availableFilters.map((filter) => (
                       <Button
                         key={filter.name}
                         variant="ghost"
                         size="sm"
-                        className={`relative h-16 p-2 rounded-xl border transition-all duration-300 ${
+                        className={`relative h-16 min-w-[80px] p-2 rounded-xl border transition-all duration-300 flex-shrink-0 ${
                           currentFilter === filter.name
                             ? `bg-gradient-to-r ${filter.color} text-white border-white/30 shadow-lg scale-105`
                             : "bg-white/5 text-white/70 border-white/10 hover:bg-white/10 hover:border-white/20"
