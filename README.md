@@ -1,16 +1,19 @@
-# Photobooth App
+# 📸 Photobooth App
 
-A modern, full-stack photobooth application built with Next.js, TypeScript, and Tailwind CSS.
+Photobooth is a modern, full-stack web application for capturing, uploading, and sharing photos. Built with Next.js, TypeScript, and Tailwind CSS, it delivers a fast, responsive, and beautiful user experience.
 
-## Features
+## ✨ Features
 
-- **User Authentication:** Secure user login and registration.
-- **Image Uploads:** Upload images from your device.
-- **Real-time Gallery:** View uploaded photos in a real-time gallery.
-- **Photo Effects:** Apply various effects and filters to your photos.
-- **Responsive Design:** A seamless experience across all devices.
+- **User Authentication:** Secure login and registration
+- **Image Uploads:** Upload images from your device
+- **Real-time Gallery:** View uploaded photos instantly
+- **Photo Effects:** Apply effects and filters to your photos
+- **Responsive Design:** Seamless experience on all devices
+- **Modern UI:** Built with shadcn/ui and Tailwind CSS
 
-## Getting Started
+yarn dev
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -42,9 +45,9 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Technologies Used
+## 🛠️ Technologies Used
 
 - **Framework:** [Next.js](https://nextjs.org/)
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
@@ -53,10 +56,14 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the a
 - **Linting:** [ESLint](https://eslint.org/)
 - **Formatting:** [Prettier](https://prettier.io/)
 
-## Screenshots
+## 📷 Screenshots
 
-_(Coming Soon)_
+_Coming Soon!_
 
-## License
+## 📄 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+Made with ❤️ by Suraj Acharya
